@@ -9,7 +9,9 @@ This module uses Shay's implementation and does two things.
 * Adds a menu option connected to Ctrl+Shift+K that displays all the keys with Out-GridView
 ![Pic](https://raw.github.com/dfinke/PowerShellISE/master/images/ShortcutKeys.png)
 
-* Second, it provides a function Get-ISEKeys that can return all the keys. Or you can search by name or shortcut.
+* Second, it provides a function Get-ISEKeys that can return all the keys. Or you can search by name or shortcut. 
+  * This lets you search for shorcut keys by name
+  * Find out if the key combination you want to use is already in use
 
 #### Search by name
 
