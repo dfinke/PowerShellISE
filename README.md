@@ -7,6 +7,7 @@
 This module uses Shay's implementation and does two things.
 
 * Adds a menu option connected to Ctrl+Shift+K that displays all the keys with Out-GridView
+![Pic](/images/shortcutkeys.png)
 
 * Second, it provides a function Get-ISEKeys that can return all the keys. Or you can search by name or shortcut.
 
