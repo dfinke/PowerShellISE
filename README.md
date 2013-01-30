@@ -1,2 +1,3 @@
-# PowerShell module for getting all the shortcut keys in ISE (Integrated Scripting Environment)
+# PowerShell module for ISE
+## Gets all the shortcut keys in ISE (Integrated Scripting Environment)
 
