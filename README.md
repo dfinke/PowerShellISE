@@ -6,7 +6,9 @@
 ### Download the module
 This module uses Shay's implementation and does two things.
 
-* Provides a function Get-ISEKeys that can return all the keys. Or you can search by name or shortcut.
+* Adds a menu option connected to Ctrl+Shift+K that displays all the keys with Out-GridView
+
+* Second, it provides a function Get-ISEKeys that can return all the keys. Or you can search by name or shortcut.
 
 #### Search by name
 
