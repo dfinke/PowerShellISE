@@ -8,6 +8,8 @@ This module uses Shay's implementation and does two things.
 
 * Provides a function Get-ISEKeys that can return all the keys. Or you can search by name or shortcut.
 
+#### Search by name
+
 ```powershell
 PS C:\> Get-ISEKeys scroll 
 
@@ -15,8 +17,10 @@ Name                                            Value
 ----                                            -----    
 EditorScrollDownAndMoveCaretIfNecessaryShortcut Ctrl+Down
 EditorScrollUpAndMoveCaretIfNecessaryShortcut   Ctrl+Up  
+```
 
-
+#### Search by shortcut
+```powershell
 PS C:\> Get-ISEKeys -KeyName backs
 
 Name                                Value              
