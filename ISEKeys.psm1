@@ -1,3 +1,40 @@
+
+function Format-Shortcut {
+
+    Param(
+        [Parameter(Mandatory=$true)]
+        [validateNotNull()]
+        [System.Windows.Input.KeyGesture]$Shortcut
+    )
+
+    $modifiers = ($Shortcut.Modifiers -replace ', ','+') -replace 'Control','Ctrl'
+    $key = $Shortcut.Key
+    
+    if($modifiers -ne 'None')
+    {
+        "$modifiers+$key"
+    }
+    else
+    {
+        $key
+    }
+}
+
+function Get-AddonMenuShortcuts ($menu) {
+
+    While($menu.Count -gt 0)
+    {
+        $menu | foreach {       
+            if($_.Shortcut -ne $null)
+            {
+                @{$_.DisplayName = (Format-Shortcut $_.Shortcut)}
+            }
+        }
+
+        $menu = $menu.submenus
+    }
+}
+
 function Get-ISEKeys {
     param(
         $Name,
@@ -9,6 +46,12 @@ function Get-ISEKeys {
     $rs = $rm.GetResourceSet((Get-Culture),$true,$true)
     
     $shortCuts = $rs | where Name -match 'Shortcut\d?$|^F\d+Keyboard'
+ 
+    $AddOnsMenu = $psise.CurrentPowerShellTab.AddOnsMenu
+
+    $AddOnsShortCuts = Get-AddonMenuShortcuts $AddonsMenu.Submenus
+
+    $shortCuts += $AddOnsShortCuts
     
     if(!$Name -And !$KeyName)  {
         return $shortCuts | sort Name | Out-GridView
